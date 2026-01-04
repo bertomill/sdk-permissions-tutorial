@@ -13,12 +13,14 @@ export async function POST(request: NextRequest) {
   }
 
   // Build hooks config for the "hooks" mode demo
-  const hooksConfig = permissionMode === "hooks" ? {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const hooksConfig: any = permissionMode === "hooks" ? {
     PreToolUse: [{
-      hooks: [async (input: { tool_name: string; tool_input: unknown }) => {
-        logs.push(`[Hook] PreToolUse fired for: ${input.tool_name}`);
+      hooks: [async (input: { tool_name?: string; tool_input?: unknown }) => {
+        const toolName = input.tool_name || "unknown";
+        logs.push(`[Hook] PreToolUse fired for: ${toolName}`);
 
-        if (input.tool_name === "Bash") {
+        if (toolName === "Bash") {
           const toolInput = input.tool_input as { command?: string };
           const cmd = toolInput?.command || "";
           logs.push(`[Hook] Checking command: ${cmd.slice(0, 50)}...`);
@@ -26,7 +28,7 @@ export async function POST(request: NextRequest) {
           if (cmd.includes("rm") || cmd.toLowerCase().includes("delete")) {
             logs.push(`[Hook] ✗ BLOCKED - dangerous command detected!`);
             return {
-              decision: "block" as const,
+              decision: "block",
               reason: "Dangerous command blocked by PreToolUse hook!"
             };
           }
