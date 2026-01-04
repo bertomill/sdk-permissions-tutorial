@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Shield -->
+  <path d="M16 2L4 7v9c0 7 5.33 11 12 14 6.67-3 12-7 12-14V7L16 2z" fill="#1E3A5F"/>
+  <path d="M16 2L4 7v9c0 7 5.33 11 12 14 6.67-3 12-7 12-14V7L16 2z" fill="url(#g)" opacity="0.8"/>
+  <path d="M16 3L5 7.5v8.5c0 6.25 4.75 9.75 11 12.75 6.25-3 11-6.5 11-12.75V7.5L16 3z" stroke="#3B82F6" stroke-width="1.5" fill="none"/>
+
+  <!-- Key -->
+  <circle cx="16" cy="11" r="3" stroke="#3B82F6" stroke-width="1.5" fill="none"/>
+  <path d="M16 14v7M16 18h3M16 20h2" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round"/>
+
+  <defs>
+    <linearGradient id="g" x1="16" y1="2" x2="16" y2="25" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3B82F6" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#1E40AF" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+</svg>

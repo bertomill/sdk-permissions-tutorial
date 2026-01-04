@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Shield background -->
+  <path d="M32 4L8 14v18c0 14 10.67 22 24 28 13.33-6 24-14 24-28V14L32 4z" fill="#1E3A5F"/>
+  <path d="M32 4L8 14v18c0 14 10.67 22 24 28 13.33-6 24-14 24-28V14L32 4z" fill="url(#shieldGradient)" opacity="0.8"/>
+
+  <!-- Shield border/glow -->
+  <path d="M32 6L10 15v17c0 12.5 9.5 19.5 22 25.5 12.5-6 22-13 22-25.5V15L32 6z" stroke="#3B82F6" stroke-width="2" fill="none"/>
+
+  <!-- Key icon -->
+  <circle cx="32" cy="24" r="6" stroke="#3B82F6" stroke-width="2.5" fill="none"/>
+  <path d="M32 30v14" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M32 38h6" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M32 42h4" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Sparkle accents -->
+  <circle cx="18" cy="20" r="1.5" fill="#60A5FA"/>
+  <circle cx="46" cy="20" r="1.5" fill="#60A5FA"/>
+  <circle cx="32" cy="52" r="1.5" fill="#60A5FA"/>
+
+  <defs>
+    <linearGradient id="shieldGradient" x1="32" y1="4" x2="32" y2="50" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#1E40AF" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+</svg>
