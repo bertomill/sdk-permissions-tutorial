@@ -1,8 +1,28 @@
-import { query } from "@anthropic-ai/claude-agent-sdk";
 import { NextRequest } from "next/server";
 
 export async function POST(request: NextRequest) {
   const { prompt, permissionMode } = await request.json();
+
+  // Disabled for public site - only works locally with ENABLE_AGENT_DEMO=true
+  if (process.env.ENABLE_AGENT_DEMO !== "true") {
+    return Response.json({
+      success: true,
+      messages: [
+        "This is a demo preview - the agent doesn't actually run on the public site.",
+        "[Tool: Example]",
+        "In the YouTube tutorial, you can see this running live with real Claude responses!",
+      ],
+      logs: [
+        `[Mode] ${permissionMode} (demo mode)`,
+        "[Info] Agent execution disabled on public site",
+        "[Tip] Watch the YouTube video to see it in action!",
+      ],
+      permissionMode,
+    });
+  }
+
+  // Only runs locally when ENABLE_AGENT_DEMO=true
+  const { query } = await import("@anthropic-ai/claude-agent-sdk");
 
   const logs: string[] = [];
   const actualMode = permissionMode === "hooks" ? "bypassPermissions" : permissionMode;
